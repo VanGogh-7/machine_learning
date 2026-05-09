@@ -18,6 +18,11 @@ else:
     device = "cpu"
 print(device)
 
+gc.collect()
+
+if torch.cuda.is_available():
+    torch.cuda.empty_cache()
+
 DefaultConv2d = partial(nn.Conv2d, kernel_size=3, padding="same")
 model = nn.Sequential(
     DefaultConv2d(in_channels=1, out_channels=64, kernel_size=7), nn.ReLU(),
