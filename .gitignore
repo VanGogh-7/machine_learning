@@ -1,0 +1,7 @@
+.idea/
+data/
+datasets/
+__pycache__/
+*.pyc
+*.tgz
+102flowers.tgz/
