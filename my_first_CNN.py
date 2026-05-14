@@ -9,6 +9,7 @@ from functools import partial
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 import torch.optim as optim
+import gc
 
 if torch.cuda.is_available():
     device = "cuda"
