@@ -19,6 +19,9 @@ def get_device():
     else:
         return torch.device("cpu")
 
+gc.collect()
+if torch.cuda.is_available():
+    torch.cuda.empty_cache()
 
 device = get_device()
 print("Using device:", device)

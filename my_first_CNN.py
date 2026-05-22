@@ -20,7 +20,6 @@ else:
 print(device)
 
 gc.collect()
-
 if torch.cuda.is_available():
     torch.cuda.empty_cache()
 
