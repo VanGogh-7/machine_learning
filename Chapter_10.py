@@ -26,6 +26,8 @@ if torch.cuda.is_available():
 device = get_device()
 print("Using device:", device)
 
+torch.manual_seed(42)
+
 toTensor = T.Compose([T.ToImage(), T.ToDtype(torch.float32, scale=True)])
 
 train_and_valid_data = torchvision.datasets.FashionMNIST(
@@ -33,10 +35,8 @@ train_and_valid_data = torchvision.datasets.FashionMNIST(
 test_data = torchvision.datasets.FashionMNIST(
     root="datasets", train=False, download=True, transform=toTensor)
 
-torch.manual_seed(42)
 train_data, valid_data = torch.utils.data.random_split(train_and_valid_data, [55_000, 5_000])
 
-torch.manual_seed(42)
 train_loader = DataLoader(train_data, batch_size=32, shuffle=True)
 valid_loader = DataLoader(valid_data, batch_size=32)
 test_loader = DataLoader(test_data, batch_size=32)
@@ -62,7 +62,6 @@ class ImageClassifier(nn.Module):
     def forward(self, X):
         return self.mlp(X)
 
-torch.manual_seed(42)
 model = ImageClassifier(n_inputs=1 * 28 * 28, n_hidden1=188, n_hidden2=188,
                         n_classes=10).to(device)
 
@@ -83,8 +82,8 @@ def evaluate_tm(model, data_loader, metric):
 
 evaluate_tm(model, valid_loader, accuracy)
 
-def train(model, optimizer, criterion, metric, train_loader, valid_loader,
-           n_epochs):
+def train(model, optimizer, criterion, metric,
+          train_loader, valid_loader, n_epochs):
     history = {"train_losses": [], "train_metrics": [], "valid_metrics": []}
     for epoch in range(n_epochs):
         total_loss = 0.
