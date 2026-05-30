@@ -109,7 +109,7 @@ def train(model, optimizer, criterion, metric,
               f"valid metric: {history['valid_metrics'][-1]:.4f}")
     return history
 
-n_epochs=50
+n_epochs=20
 
 history = train(model, optimizer, xentropy, accuracy, train_loader, valid_loader,
                  n_epochs)
