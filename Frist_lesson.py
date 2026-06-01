@@ -95,3 +95,43 @@ def intersect(seq1, seq2):
     return res
 
 
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+
+v1 = Vector(1, 2)
+v2 = Vector(3, 4)
+
+v3 = v1 + v2
+
+print("\n",v3.x, v3.y,"\n")
+
+class Animal:
+    category = "animal"
+
+    def speak(self):
+        print("Some sound\n")
+
+
+class Dog(Animal):
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        print(self.name, "says woof\n")
+
+
+dog1 = Dog("Lucky")
+dog2 = Dog("Max")
+
+print(dog1.name)
+print(dog2.name)
+
+print(dog1.category)
+
+dog1.speak()
+dog2.speak()
