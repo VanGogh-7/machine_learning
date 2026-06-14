@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 
-
 @dataclass
 class TrainConfig:
     data_root: str = "datasets"
