@@ -1,0 +1,1 @@
+"""FashionMNIST MLP package."""
