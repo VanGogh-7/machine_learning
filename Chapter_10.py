@@ -1,4 +1,6 @@
 import gc
+from pathlib import Path
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -10,6 +12,10 @@ import torchmetrics
 import matplotlib.pyplot as plt
 import numpy as np
 import optuna
+
+REPO_ROOT = Path(__file__).resolve().parent
+FASHION_MNIST_ROOT = REPO_ROOT / "datasets" / "fashion_mnist"
+
 
 def get_device():
     if torch.cuda.is_available():
@@ -31,9 +37,9 @@ torch.manual_seed(42)
 toTensor = T.Compose([T.ToImage(), T.ToDtype(torch.float32, scale=True)])
 
 train_and_valid_data = torchvision.datasets.FashionMNIST(
-    root="datasets", train=True, download=True, transform=toTensor)
+    root=FASHION_MNIST_ROOT, train=True, download=True, transform=toTensor)
 test_data = torchvision.datasets.FashionMNIST(
-    root="datasets", train=False, download=True, transform=toTensor)
+    root=FASHION_MNIST_ROOT, train=False, download=True, transform=toTensor)
 
 train_data, valid_data = torch.utils.data.random_split(train_and_valid_data, [55_000, 5_000])
 
@@ -155,6 +161,5 @@ y_pred = y_pred_logits.argmax(dim=1)  # index of the largest logit
 #study.optimize(objective, n_trials=5)
 
 #print(study.best_params)
-
 
 

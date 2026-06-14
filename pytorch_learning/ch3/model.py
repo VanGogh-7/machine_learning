@@ -1,15 +1,23 @@
+import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-class Net(nn.Module):
-    def __init__(self):
-        super(self).__init__()
-        self.fc1 = nn.Linear(2048, 256)
-        self.fc2 = nn.Linear(256, 64)
-        self.fc3 = nn.Linear(64, 2)
+class simpleNet(nn.Module):
+    def __init__(self, in_channels: int, n_classes: int) -> None:
+        super().__init__()
+        self.network = nn.Sequential(
+            nn.Conv2d(in_channels, 32, kernel_size=3, padding=1),
+            nn.ReLU(),
+            nn.MaxPool2d(kernel_size=2),
+            nn.Conv2d(32, 64, kernel_size=3, padding=1),
+            nn.ReLU(),
+            nn.MaxPool2d(kernel_size=2),
+            nn.Flatten(),
+            nn.Linear(64 * 8 * 8, 128),
+            nn.ReLU(),
+            nn.Linear(128, n_classes),
+        )
 
-        def forward(self, x):
-            x =x.view(-1, 2048)
-            x = F.relu(self.fc1(x))
-            x = F.relu(self.fc2(x))
-            
+    def forward(self, inputs: torch.Tensor) -> torch.Tensor:
+        return self.network(inputs)
+

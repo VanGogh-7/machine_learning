@@ -1,4 +1,5 @@
 from collections.abc import Callable
+from pathlib import Path
 
 import torch
 from torch.utils.data import DataLoader, random_split
@@ -16,7 +17,7 @@ def build_transform() -> Callable:
 
 
 def build_dataloaders(
-    data_root: str,
+    data_root: Path,
     batch_size: int,
     num_workers: int,
     seed: int,

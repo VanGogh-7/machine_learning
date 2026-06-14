@@ -25,6 +25,12 @@ fashion_mnist_mlp/
 `src/` contains the reusable project code. `scripts/` contains the commands
 used to train the model and run inference.
 
+## Shared dataset storage
+
+Fashion-MNIST is shared with the rest of the repository and stored under
+`machine_learning/datasets/fashion_mnist/`. Running this project reuses that
+copy instead of downloading a project-local duplicate.
+
 ## Setup
 
 From the project root:
@@ -39,8 +45,9 @@ pip install -r requirements.txt
 python scripts/train.py
 ```
 
-Training downloads FashionMNIST, displays the learning curves, and saves the
-model weights as `fashion_mnist_mlp.pt`.
+Training downloads FashionMNIST when it is not already available in the shared
+dataset directory, displays the learning curves, and saves the model weights
+as `fashion_mnist_mlp.pt`.
 
 ## Predict
 

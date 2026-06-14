@@ -35,7 +35,7 @@ def build_eval_transform() -> v2.Compose:
 
 
 def build_dataloaders(
-    data_root: str,
+    data_root: Path,
     batch_size: int,
     num_workers: int,
     seed: int,

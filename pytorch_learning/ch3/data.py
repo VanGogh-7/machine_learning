@@ -1,10 +1,11 @@
-import torch
-from torchvision.datasets import CIFAR10
 from pathlib import Path
-from torchvision import transforms
 
-current_dir = Path(__file__).resolve().parent
-data_dir = current_dir.parent / "data"
+import torch
+from torchvision import transforms
+from torchvision.datasets import CIFAR10
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+data_dir = REPO_ROOT / "datasets" / "cifar10"
 
 train_transform = transforms.Compose([
     transforms.RandomCrop(32, padding=4),
@@ -30,5 +31,4 @@ print("index: ", train_data.class_to_idx)
 
 train_loader = torch.utils.data.DataLoader(train_data, batch_size=16, shuffle=True, num_workers=2)
 test_loader = torch.utils.data.DataLoader(test_data, batch_size=16, shuffle=False, num_workers=2)
-
 

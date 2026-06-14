@@ -2,12 +2,16 @@ import os
 import time
 import random
 from dataclasses import dataclass
+from pathlib import Path
 
 import numpy as np
 import torch
 from torch import nn
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
+
+REPO_ROOT = Path(__file__).resolve().parent
+MNIST_ROOT = REPO_ROOT / "datasets" / "mnist"
 
 
 @dataclass
@@ -117,14 +121,14 @@ def get_dataloaders(config: TrainingConfig):
     )
 
     train_dataset = datasets.MNIST(
-        root="./data",
+        root=MNIST_ROOT,
         train=True,
         download=True,
         transform=transform,
     )
 
     test_dataset = datasets.MNIST(
-        root="./data",
+        root=MNIST_ROOT,
         train=False,
         download=True,
         transform=transform,
@@ -287,7 +291,7 @@ def infer_single(model_path: str, item_index: int = 42) -> None:
     )
 
     test_dataset = datasets.MNIST(
-        root="./data",
+        root=MNIST_ROOT,
         train=False,
         download=True,
         transform=transform,

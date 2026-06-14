@@ -25,6 +25,12 @@ mnist_cnn/
 `src/` contains reusable project code. `scripts/` contains the training and
 prediction entry points.
 
+## Shared dataset storage
+
+MNIST is shared with the rest of the repository and stored under
+`machine_learning/datasets/mnist/`. Running this project reuses that copy
+instead of downloading a project-local duplicate.
+
 ## Setup
 
 From the project root:
@@ -39,8 +45,9 @@ pip install -r requirements.txt
 python scripts/train.py
 ```
 
-Training downloads MNIST, displays the learning curves, and saves the model
-weights as `mnist_cnn.pt`.
+Training downloads MNIST when it is not already available in the shared
+dataset directory, displays the learning curves, and saves the model weights
+as `mnist_cnn.pt`.
 
 ## Predict
 

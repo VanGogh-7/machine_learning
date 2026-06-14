@@ -4,9 +4,13 @@ import torch.optim as optim
 import torchmetrics
 import torchvision
 from functools import partial
+from pathlib import Path
 from torch.utils.data import DataLoader
 import gc
 import torchvision.transforms.v2 as T
+
+REPO_ROOT = Path(__file__).resolve().parent
+FLOWERS102_ROOT = REPO_ROOT / "datasets" / "flowers102"
 
 
 
@@ -112,7 +116,7 @@ weights = torchvision.models.ConvNeXt_Base_Weights.IMAGENET1K_V1
 
 DefaultFlowers102 = partial(
     torchvision.datasets.Flowers102,
-    root="datasets",
+    root=FLOWERS102_ROOT,
     download=True
 )
 
@@ -223,5 +227,4 @@ history_stage2 = train(
 # -----------------------------
 test_acc = evaluate_tm(model, test_loader, accuracy, device)
 print(f"\nTest accuracy: {test_acc:.4f}")
-
 

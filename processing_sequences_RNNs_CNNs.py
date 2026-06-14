@@ -13,6 +13,10 @@ import tarfile
 import urllib.request
 from statsmodels.tsa.arima.model import ARIMA
 
+REPO_ROOT = Path(__file__).resolve().parent
+DATASETS_ROOT = REPO_ROOT / "datasets"
+RIDERSHIP_ROOT = DATASETS_ROOT / "ridership"
+
 if  torch.cuda.is_available():
     device = torch.device("cuda")
 elif torch.backends.mps.is_available():
@@ -28,17 +32,17 @@ if torch.cuda.is_available():
     torch.cuda.empty_cache()
 
 def download_and_extract_ridership_data():
-    tarball_path = Path("datasets/ridership.tgz")
+    tarball_path = RIDERSHIP_ROOT / "ridership.tgz"
     if not tarball_path.is_file():
-        Path("datasets").mkdir(parents=True, exist_ok=True)
+        RIDERSHIP_ROOT.mkdir(parents=True, exist_ok=True)
         url = "https://github.com/ageron/data/raw/main/ridership.tgz"
         urllib.request.urlretrieve(url, tarball_path)
         with tarfile.open(tarball_path) as housing_tarball:
-            housing_tarball.extractall(path="datasets", filter="data")
+            housing_tarball.extractall(path=DATASETS_ROOT, filter="data")
 
 download_and_extract_ridership_data()
 
-path = Path("datasets/ridership/CTA_-_Ridership_-_Daily_Boarding_Totals.csv")
+path = RIDERSHIP_ROOT / "CTA_-_Ridership_-_Daily_Boarding_Totals.csv"
 df = pd.read_csv(path, parse_dates=["service_date"])
 df.columns = ["date", "day_type", "bus", "rail", "total"]  # shorter names
 df = df.sort_values("date").set_index("date")

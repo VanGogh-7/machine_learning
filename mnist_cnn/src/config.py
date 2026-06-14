@@ -1,8 +1,13 @@
 from dataclasses import dataclass
+from pathlib import Path
+
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
 
 @dataclass
 class TrainConfig:
-    data_root: str = "datasets"
+    # All datasets are stored in the repository-level datasets/ directory.
+    data_root: Path = REPO_ROOT / "datasets" / "mnist"
     batch_size: int = 64
     num_workers: int = 2
     seed: int = 42

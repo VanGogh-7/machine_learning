@@ -10,6 +10,7 @@ from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 import torch.optim as optim
 import gc
+from pathlib import Path
 
 if torch.cuda.is_available():
     device = "cuda"
@@ -44,10 +45,16 @@ model = nn.Sequential(
 transform = transforms.Compose([transforms.ToTensor(),
                                 transforms.Normalize((0.5,), (0.5,))])
 
+REPO_ROOT = Path(__file__).resolve().parent
+FASHION_MNIST_ROOT = REPO_ROOT / "datasets" / "fashion_mnist"
 
-train_data = datasets.FashionMNIST(root='./data', train=True, download=True, transform=transform)
+train_data = datasets.FashionMNIST(
+    root=FASHION_MNIST_ROOT, train=True, download=True, transform=transform
+)
 
-test_data = datasets.FashionMNIST(root='./data', train=False, download=True, transform=transform)
+test_data = datasets.FashionMNIST(
+    root=FASHION_MNIST_ROOT, train=False, download=True, transform=transform
+)
 
 train_loader = DataLoader(train_data, batch_size=64, shuffle=True)
 test_loader = DataLoader(test_data, batch_size=64, shuffle=False)
@@ -96,5 +103,4 @@ with torch.no_grad():
         correct += (predicted == labels).sum().item()
 
 print(f"Test Accuracy: {100 * correct / total:.2f}%")
-
 

@@ -1,11 +1,16 @@
 from dataclasses import dataclass
+from pathlib import Path
+
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
 
 
 @dataclass
 class TrainConfig:
     """Training settings shared by the project scripts."""
 
-    data_root: str = "datasets"
+    # All datasets are stored in the repository-level datasets/ directory.
+    data_root: Path = REPO_ROOT / "datasets" / "cifar100"
     batch_size: int = 128
     num_workers: int = 2
     seed: int = 42

@@ -14,6 +14,9 @@ import pandas as pd
 from pathlib import Path
 from statsmodels.tsa.arima.model import ARIMA
 
+REPO_ROOT = Path(__file__).resolve().parent
+RIDERSHIP_ROOT = REPO_ROOT / "datasets" / "ridership"
+
 
 def get_device():
     if torch.cuda.is_available():
@@ -33,7 +36,7 @@ print("Using device:", device)
 
 torch.manual_seed(42)
 
-path = Path("datasets/ridership/CTA_-_Ridership_-_Daily_Boarding_Totals.csv")
+path = RIDERSHIP_ROOT / "CTA_-_Ridership_-_Daily_Boarding_Totals.csv"
 df = pd.read_csv(path, parse_dates=["service_date"])
 df.columns = ["date", "day_type", "bus", "rail", "total"]  # shorter names
 df = df.sort_values("date").set_index("date")

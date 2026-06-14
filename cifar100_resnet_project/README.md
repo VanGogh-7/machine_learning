@@ -17,6 +17,12 @@ cifar100_resnet_project/
 `SmallCNN` provides a conventional CNN baseline. `SmallResNet` is the default model and implements
 its residual blocks from scratch without pretrained weights.
 
+## Shared dataset storage
+
+CIFAR-100 is shared with the rest of the repository and stored under
+`machine_learning/datasets/cifar100/`. Running this project reuses that copy instead of downloading
+a project-local duplicate.
+
 ## Setup and usage
 
 Run these commands from the project root:
@@ -28,5 +34,5 @@ python scripts/evaluate.py
 python scripts/predict.py
 ```
 
-The first command that accesses CIFAR-100 downloads it into `datasets/`. Training saves the model
-with the best validation top-1 accuracy to `checkpoints/best_model.pt`.
+The first command that accesses CIFAR-100 downloads it into the shared dataset directory. Training
+saves the model with the best validation top-1 accuracy to `checkpoints/best_model.pt`.

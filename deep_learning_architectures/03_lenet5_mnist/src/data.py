@@ -2,27 +2,31 @@ from collections.abc import Callable
 from pathlib import Path
 
 import torch
-from torch.utils.data import DataLoader, random_split
-from torchvision import datasets
-from torchvision.transforms import v2
+from torch.utils.data import DataLoader, Dataset, random_split
+from torchvision import datasets, transforms
 
 
-def build_transform() -> Callable:
-    return v2.Compose(
+def build_transform(
+    mean: tuple[float, ...],
+    std: tuple[float, ...],
+) -> Callable:
+    return transforms.Compose(
         [
-            v2.ToImage(),
-            v2.ToDtype(torch.float32, scale=True),
+            transforms.ToTensor(),
+            transforms.Normalize(mean, std),
         ]
     )
 
 
-def build_dataloaders(
+def build_datasets(
     data_root: Path,
-    batch_size: int,
-    num_workers: int,
     seed: int,
-) -> tuple[DataLoader, DataLoader, DataLoader]:
-    transform = build_transform()
+    train_size: int,
+    valid_size: int,
+    mean: tuple[float, ...],
+    std: tuple[float, ...],
+) -> tuple[Dataset, Dataset, Dataset]:
+    transform = build_transform(mean=mean, std=std)
     train_and_valid_data = datasets.MNIST(
         root=data_root,
         train=True,
@@ -39,8 +43,29 @@ def build_dataloaders(
     split_generator = torch.Generator().manual_seed(seed)
     train_data, valid_data = random_split(
         train_and_valid_data,
-        [55_000, 5_000],
+        [train_size, valid_size],
         generator=split_generator,
+    )
+    return train_data, valid_data, test_data
+
+
+def build_dataloaders(
+    data_root: Path,
+    batch_size: int,
+    num_workers: int,
+    seed: int,
+    train_size: int,
+    valid_size: int,
+    mean: tuple[float, ...],
+    std: tuple[float, ...],
+) -> tuple[DataLoader, DataLoader, DataLoader]:
+    train_data, valid_data, test_data = build_datasets(
+        data_root=data_root,
+        seed=seed,
+        train_size=train_size,
+        valid_size=valid_size,
+        mean=mean,
+        std=std,
     )
 
     loader_generator = torch.Generator().manual_seed(seed)
