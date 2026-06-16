@@ -17,7 +17,9 @@ The intended sequence is:
 10_lightgcn_recommendation
 ```
 
-For now, `01_wide_deep_ctr_prediction`, `02_deepfm_ctr_prediction`, and
-`03_dcn_ctr_prediction` exist in this folder. The existing root-level
+For now, `01_wide_deep_ctr_prediction`, `02_deepfm_ctr_prediction`,
+`03_dcn_ctr_prediction`, `04_xdeepfm_ctr_prediction`, and
+`05_din_ctr_prediction`, and `06_dien_ctr_prediction` exist in this folder.
+The existing root-level
 `deep_learning_architectures/13_wide_deep_ctr_prediction` project is left in
 place for now.
