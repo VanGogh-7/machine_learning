@@ -1,0 +1,64 @@
+import gc
+import json
+import random
+from pathlib import Path
+
+import numpy as np
+import torch
+from torch import nn
+
+
+def get_device() -> torch.device:
+    if torch.cuda.is_available():
+        return torch.device("cuda")
+    if torch.backends.mps.is_available():
+        return torch.device("mps")
+    return torch.device("cpu")
+
+
+def set_seed(seed: int) -> None:
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+
+
+def save_checkpoint(model: nn.Module, checkpoint_path: Path) -> None:
+    checkpoint_path.parent.mkdir(parents=True, exist_ok=True)
+    torch.save(model.state_dict(), checkpoint_path)
+
+
+def load_checkpoint(
+    model: nn.Module,
+    checkpoint_path: Path,
+    device: torch.device,
+) -> None:
+    state_dict = torch.load(checkpoint_path, map_location=device, weights_only=True)
+    model.load_state_dict(state_dict)
+
+
+def save_vocab(token_to_id: dict[str, int], vocab_path: Path) -> None:
+    vocab_path.parent.mkdir(parents=True, exist_ok=True)
+    with vocab_path.open("w", encoding="utf-8") as vocab_file:
+        json.dump(token_to_id, vocab_file, indent=2, sort_keys=True)
+
+
+def load_vocab(vocab_path: Path) -> dict[str, int]:
+    with vocab_path.open(encoding="utf-8") as vocab_file:
+        token_to_id = json.load(vocab_file)
+    return {token: int(index) for token, index in token_to_id.items()}
+
+
+def save_history(history: dict[str, list[float]], history_path: Path) -> None:
+    history_path.parent.mkdir(parents=True, exist_ok=True)
+    with history_path.open("w", encoding="utf-8") as history_file:
+        json.dump(history, history_file, indent=2)
+
+
+def clear_memory() -> None:
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+    if torch.backends.mps.is_available() and hasattr(torch.mps, "empty_cache"):
+        torch.mps.empty_cache()
