@@ -69,7 +69,7 @@ split is evaluated only once after training.
 ## Project Structure
 
 ```text
-14_deepfm_ctr_prediction/
+02_deepfm_ctr_prediction/
 ├── scripts/
 │   ├── train.py
 │   └── predict.py
