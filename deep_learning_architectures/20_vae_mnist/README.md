@@ -103,3 +103,22 @@ new samples from random latent vectors, and saves figures under `outputs/`.
 
 This project implements an educational convolutional VAE, not a production
 generative model.
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+Variational AutoEncoder, VAE, turned the autoencoder idea into a probabilistic latent-variable generative model. It connects neural networks with variational inference.
+
+### Basic Structure
+
+The encoder predicts `mu` and `logvar`, the reparameterization trick samples a latent vector `z`, and the decoder reconstructs the image. The loss combines reconstruction error and KL divergence.
+
+### Why It Matters
+
+VAE made latent-variable generative modeling practical with backpropagation and remains a key baseline for understanding modern generative models.
+
+### Key Papers
+
+* [Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114)
+* [Stochastic Backpropagation and Approximate Inference in Deep Generative Models](https://arxiv.org/abs/1401.4082)

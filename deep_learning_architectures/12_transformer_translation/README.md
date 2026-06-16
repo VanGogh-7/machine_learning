@@ -105,3 +105,21 @@ python scripts/predict.py
 
 This is a small educational Transformer translation model, not a pretrained
 translation system.
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+The Transformer was introduced for machine translation and replaced recurrent encoder-decoder models with attention-based sequence modeling.
+
+### Basic Structure
+
+The architecture uses encoder self-attention, decoder masked self-attention, encoder-decoder cross-attention, feed-forward layers, residual connections, and layer normalization.
+
+### Why It Matters
+
+Transformer encoder-decoder models became a foundation for modern machine translation, summarization, and many sequence-to-sequence systems.
+
+### Key Papers
+
+* [Attention Is All You Need](https://proceedings.neurips.cc/paper_files/paper/2017/hash/3f5ee243547dee91fbd053c1c4a845aa-Abstract.html)

@@ -104,3 +104,21 @@ CIFAR-10-like images, and saves image grids under `outputs/`.
 
 This project implements an educational DCGAN, not a production image generation
 system.
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+DCGAN introduced a stable convolutional architecture for GAN image generation. It replaced fully connected image generators with convolutional designs better suited to spatial data.
+
+### Basic Structure
+
+The generator uses transposed convolutions, BatchNorm, ReLU, and Tanh output. The discriminator uses strided convolutions, BatchNorm, LeakyReLU, and raw logits for `BCEWithLogitsLoss`.
+
+### Why It Matters
+
+DCGAN became a standard baseline for image GANs and popularized architectural rules that influenced later generative vision models.
+
+### Key Papers
+
+* [Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks](https://arxiv.org/abs/1511.06434)

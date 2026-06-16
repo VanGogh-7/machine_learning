@@ -94,3 +94,22 @@ python scripts/predict.py
 
 The prediction script rebuilds the same training vocabulary, loads the best
 checkpoint, and prints sentiment predictions for several example sentences.
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+Vanilla RNNs are classic neural networks for sequential data. They were important before gated recurrent models and attention-based models became dominant.
+
+### Basic Structure
+
+An RNN processes tokens one step at a time while maintaining a hidden state. For text classification, the final hidden state or a pooled sequence representation can be used as the input to a classifier.
+
+### Why It Matters
+
+RNNs introduced a simple neural way to model ordered data and temporal dependencies, even though they struggle with long-range dependencies.
+
+### Key Papers
+
+* [Learning representations by back-propagating errors](https://www.nature.com/articles/323533a0)
+* [Finding Structure in Time](https://doi.org/10.1207/s15516709cog1402_1)

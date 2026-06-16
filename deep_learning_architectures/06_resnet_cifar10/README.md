@@ -91,3 +91,22 @@ python scripts/predict.py
 
 The prediction script loads the best checkpoint and prints the true and
 predicted label indices and class names for one CIFAR-10 test image.
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+ResNet introduced residual learning to make very deep networks easier to optimize. Instead of forcing each block to learn a full transformation, residual blocks learn a correction added to the input through a skip connection.
+
+### Basic Structure
+
+The core unit is a residual block with convolution, normalization, activation, and an identity or projection shortcut. This project implements a smaller CIFAR-10 adapted ResNet manually.
+
+### Why It Matters
+
+Residual connections made extremely deep CNNs practical and influenced many later architectures in vision, language, speech, and generative modeling.
+
+### Key Papers
+
+* [Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html)
+* [Identity Mappings in Deep Residual Networks](https://arxiv.org/abs/1603.05027)

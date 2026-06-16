@@ -98,3 +98,21 @@ python scripts/predict.py
 
 This project is an educational PyTorch implementation, not a full production
 CTR system.
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+Wide & Deep is an important industrial recommender-system architecture that combines memorization and generalization. It was designed for large-scale recommendation and click-through-rate style prediction tasks.
+
+### Basic Structure
+
+The wide component is a linear model that can memorize sparse feature patterns. The deep component uses embeddings and neural layers to learn nonlinear feature interactions.
+
+### Why It Matters
+
+Wide & Deep helped popularize hybrid recommender models that combine manually useful feature patterns with learned dense representations.
+
+### Key Papers
+
+* [Wide & Deep Learning for Recommender Systems](https://arxiv.org/abs/1606.07792)

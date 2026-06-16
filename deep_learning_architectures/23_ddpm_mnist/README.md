@@ -100,3 +100,23 @@ noise, and saves generated images plus selected reverse-denoising steps under
 
 This project implements an educational DDPM, not a production-scale diffusion
 model.
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+DDPM is a diffusion-based generative model that learns generation through iterative denoising. It became one of the foundations of modern diffusion image generation systems.
+
+### Basic Structure
+
+The forward process gradually adds Gaussian noise using a beta schedule. The reverse process uses a timestep-conditioned U-Net to predict noise and denoise images step by step.
+
+### Why It Matters
+
+DDPM showed that high-quality generation can be trained with a simple noise prediction objective rather than adversarial training, strongly influencing modern generative modeling.
+
+### Key Papers
+
+* [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)
+* [Deep Unsupervised Learning using Nonequilibrium Thermodynamics](https://arxiv.org/abs/1503.03585)
+* [Denoising Diffusion Implicit Models](https://arxiv.org/abs/2010.02502)

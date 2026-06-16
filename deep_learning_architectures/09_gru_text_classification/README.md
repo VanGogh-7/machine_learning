@@ -97,3 +97,22 @@ python scripts/predict.py
 
 The prediction script rebuilds the same training vocabulary, loads the best
 checkpoint, and prints sentiment predictions for several example sentences.
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+GRU was introduced as a simpler gated recurrent architecture after LSTM. It keeps the gating idea but removes the separate cell state.
+
+### Basic Structure
+
+A GRU uses an update gate and reset gate to control information flow through the hidden state. For text classification, the final hidden state can summarize the sequence for a classifier.
+
+### Why It Matters
+
+GRU offered a practical alternative to LSTM that is often simpler, faster, and competitive on sequence modeling tasks.
+
+### Key Papers
+
+* [Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation](https://arxiv.org/abs/1406.1078)
+* [Empirical Evaluation of Gated Recurrent Neural Networks on Sequence Modeling](https://arxiv.org/abs/1412.3555)

@@ -84,3 +84,21 @@ python scripts/predict.py
 
 The prediction script loads the best checkpoint and prints the true and
 predicted label indices and class names for one CIFAR-10 test image.
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+VGG showed that very deep CNNs could be built from a simple and uniform design. Instead of using many different filter sizes, VGG mainly used repeated 3x3 convolutions.
+
+### Basic Structure
+
+The architecture stacks multiple 3x3 convolution layers, uses max pooling to reduce spatial resolution, and finishes with a classifier. This project uses a smaller VGG-style model adapted for CIFAR-10.
+
+### Why It Matters
+
+VGG became a reference architecture because it is easy to understand, easy to reproduce, and showed that depth itself can strongly improve representation learning.
+
+### Key Papers
+
+* [Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/abs/1409.1556)

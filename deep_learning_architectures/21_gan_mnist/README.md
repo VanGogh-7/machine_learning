@@ -107,3 +107,21 @@ MNIST-like images, and saves image grids under `outputs/`.
 
 This project implements an educational GAN, not a production image generation
 system.
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+GAN introduced adversarial training for generative modeling. Instead of optimizing only reconstruction or likelihood-style losses, it trains two networks against each other.
+
+### Basic Structure
+
+The generator maps random noise to fake images. The discriminator receives real and fake images and returns logits indicating whether each image appears real.
+
+### Why It Matters
+
+GANs reshaped generative modeling research and led to many influential image generation architectures, including DCGAN, conditional GANs, and later high-resolution synthesis systems.
+
+### Key Papers
+
+* [Generative Adversarial Nets](https://proceedings.neurips.cc/paper_files/paper/2014/hash/f033ed80deb0234979a61f95710dbe25-Abstract.html)

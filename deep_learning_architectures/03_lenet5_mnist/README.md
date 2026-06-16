@@ -93,3 +93,21 @@ For a batch size of 64, tensors move through the network as follows:
 | Fully connected | `(64, 120)` |
 | Fully connected | `(64, 84)` |
 | Output logits | `(64, 10)` |
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+LeNet-5 is one of the earliest successful convolutional neural networks for handwritten digit recognition. It showed that learned convolutional filters, local receptive fields, and subsampling could work together for practical document recognition.
+
+### Basic Structure
+
+The model uses convolutional layers to extract local visual features, pooling or subsampling layers to reduce spatial size, and fully connected layers to classify the final representation.
+
+### Why It Matters
+
+LeNet-5 established many design ideas that still appear in modern CNNs: convolution, spatial downsampling, hierarchical feature learning, and end-to-end training.
+
+### Key Papers
+
+* [Gradient-Based Learning Applied to Document Recognition](http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf)

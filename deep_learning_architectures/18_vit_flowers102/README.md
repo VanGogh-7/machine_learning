@@ -110,3 +110,21 @@ and predicted labels, and saves a prediction grid under `outputs/`.
 
 This is an educational small ViT from scratch, not a pretrained ViT or a
 production image-classification system.
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+Vision Transformer, ViT, introduced a pure Transformer-style architecture for image classification. It showed that images can be processed as sequences of patch tokens.
+
+### Basic Structure
+
+An image is split into fixed-size patches, each patch is embedded as a token, a class token and positional embeddings are added, and a Transformer Encoder processes the token sequence.
+
+### Why It Matters
+
+ViT challenged the assumption that convolution is required for strong vision models and helped connect computer vision with the Transformer scaling trends from NLP.
+
+### Key Papers
+
+* [An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://openreview.net/forum?id=YicbFdNTTy)

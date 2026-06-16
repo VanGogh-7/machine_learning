@@ -98,3 +98,21 @@ python scripts/predict.py
 
 The prediction script rebuilds the same training vocabulary, loads the best
 checkpoint, and prints sentiment predictions for several example sentences.
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+LSTM was introduced to address the difficulty vanilla RNNs have with long-term dependencies. Its gates and cell state help preserve information over longer sequences.
+
+### Basic Structure
+
+An LSTM maintains both a hidden state and a cell state. Input, forget, and output gates control what information is stored, removed, and exposed to the next layer or classifier.
+
+### Why It Matters
+
+LSTM became a foundation for sequence modeling in language, speech, handwriting, and time series before attention-based architectures became dominant.
+
+### Key Papers
+
+* [Long Short-Term Memory](https://doi.org/10.1162/neco.1997.9.8.1735)

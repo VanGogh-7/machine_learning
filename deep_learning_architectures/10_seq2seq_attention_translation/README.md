@@ -97,3 +97,23 @@ python scripts/predict.py
 
 Prediction rebuilds both vocabularies from the training files and greedily
 translates several English examples from the test set.
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+Seq2Seq models made neural machine translation practical by using an encoder to read a source sentence and a decoder to generate a target sentence. Attention improved this design by letting the decoder look back at different encoder states instead of relying on one fixed vector.
+
+### Basic Structure
+
+The architecture contains an encoder, a decoder, teacher forcing during training, and an attention mechanism that computes a context vector for each generated target token.
+
+### Why It Matters
+
+Attention-based Seq2Seq was a key step between recurrent neural translation systems and the Transformer architecture.
+
+### Key Papers
+
+* [Sequence to Sequence Learning with Neural Networks](https://proceedings.neurips.cc/paper_files/paper/2014/hash/a14ac55a4f27472c5d894ec1c3c743d2-Abstract.html)
+* [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/abs/1409.0473)
+* [Effective Approaches to Attention-based Neural Machine Translation](https://arxiv.org/abs/1508.04025)

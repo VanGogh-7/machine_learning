@@ -87,3 +87,21 @@ python scripts/predict.py
 
 This is a small educational Transformer Encoder classifier, not a pretrained
 language model.
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+The Transformer replaced recurrence with self-attention and became the foundation of modern NLP. For classification, the encoder can model relationships between all tokens in parallel.
+
+### Basic Structure
+
+The model uses token embeddings, positional encodings, multi-head self-attention, feed-forward networks, residual connections, and layer normalization. A pooled representation is passed to a classifier.
+
+### Why It Matters
+
+Transformer encoders enabled scalable language representation learning and later powered models such as BERT and many modern text classifiers.
+
+### Key Papers
+
+* [Attention Is All You Need](https://proceedings.neurips.cc/paper_files/paper/2017/hash/3f5ee243547dee91fbd053c1c4a845aa-Abstract.html)

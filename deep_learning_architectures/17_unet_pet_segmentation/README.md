@@ -88,3 +88,21 @@ python scripts/predict.py
 
 Prediction saves comparison figures with input image, ground-truth mask, and
 predicted mask under the project output directory.
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+U-Net was introduced for biomedical image segmentation and became a classic encoder-decoder architecture for pixel-level prediction. It is now widely used beyond biomedical imaging.
+
+### Basic Structure
+
+The model has a contracting encoder path to capture context and an expanding decoder path to restore resolution. Skip connections concatenate high-resolution encoder features with decoder features.
+
+### Why It Matters
+
+U-Net made precise segmentation practical with relatively limited data and established skip-connected encoder-decoder designs as a standard for segmentation.
+
+### Key Papers
+
+* [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597)

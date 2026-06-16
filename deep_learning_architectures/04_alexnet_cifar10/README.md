@@ -85,3 +85,21 @@ python scripts/predict.py
 
 The prediction script loads the saved checkpoint and prints the true and
 predicted labels and class names for one CIFAR-10 test image.
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+AlexNet was the breakthrough CNN that won ImageNet 2012 by a large margin and helped trigger the modern deep learning wave. It demonstrated that deep CNNs could scale to large visual recognition tasks when combined with GPUs, ReLU activations, data augmentation, and dropout.
+
+### Basic Structure
+
+The original AlexNet stacks convolutional layers, ReLU activations, pooling, dropout, and fully connected classifier layers. This project adapts the idea to CIFAR-10 with a smaller CNN because CIFAR-10 images are only 32x32.
+
+### Why It Matters
+
+AlexNet made deep convolutional networks the dominant approach for computer vision and changed the direction of visual recognition research.
+
+### Key Papers
+
+* [ImageNet Classification with Deep Convolutional Neural Networks](https://proceedings.neurips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html)

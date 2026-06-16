@@ -84,3 +84,21 @@ After training:
 ```bash
 python scripts/predict.py
 ```
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+DenseNet introduced dense connectivity, where each layer receives feature maps from all previous layers in the same block. This design encourages feature reuse and improves gradient flow.
+
+### Basic Structure
+
+Dense layers concatenate new feature maps with previous feature maps. Transition layers reduce spatial resolution and compress channel count between dense blocks.
+
+### Why It Matters
+
+DenseNet showed that feature concatenation can be a strong alternative to residual addition, often improving parameter efficiency and information flow.
+
+### Key Papers
+
+* [Densely Connected Convolutional Networks](https://openaccess.thecvf.com/content_cvpr_2017/html/Huang_Densely_Connected_Convolutional_CVPR_2017_paper.html)

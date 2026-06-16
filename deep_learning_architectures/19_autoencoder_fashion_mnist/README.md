@@ -97,3 +97,21 @@ reconstruction comparison figure under `outputs/`.
 
 This project implements an educational convolutional AutoEncoder, not a
 production image compression system.
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+AutoEncoders are classic unsupervised representation learning models. They learn to compress inputs into latent representations and reconstruct the original inputs.
+
+### Basic Structure
+
+The encoder maps an image to a bottleneck representation. The decoder maps that representation back to image space, and reconstruction loss trains the model because the target is the input itself.
+
+### Why It Matters
+
+AutoEncoders helped establish the idea that neural networks can learn useful representations without class labels, and they prepare the ground for VAEs and other generative models.
+
+### Key Papers
+
+* [Reducing the Dimensionality of Data with Neural Networks](https://www.science.org/doi/10.1126/science.1127647)

@@ -85,3 +85,21 @@ After training:
 ```bash
 python scripts/predict.py
 ```
+
+## Model Summary and Key Papers
+
+### Historical Background
+
+MobileNet v1 was designed for mobile and resource-constrained vision applications. It focused on efficient CNN computation rather than only maximizing accuracy.
+
+### Basic Structure
+
+The core operation is depthwise separable convolution: a depthwise convolution applies one spatial filter per input channel, and a pointwise 1x1 convolution mixes channels. A width multiplier scales the model size.
+
+### Why It Matters
+
+MobileNet made efficient neural network design a major research direction for deployment on phones, embedded devices, and low-compute environments.
+
+### Key Papers
+
+* [MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications](https://arxiv.org/abs/1704.04861)
