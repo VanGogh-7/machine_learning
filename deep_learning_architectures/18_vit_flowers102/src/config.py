@@ -9,9 +9,9 @@ REPO_ROOT = Path(__file__).resolve().parents[3]
 class TrainConfig:
     # All datasets are stored in the repository-level datasets/ directory.
     data_root: Path = REPO_ROOT / "datasets" / "flowers102"
-    batch_size: int = 64
+    batch_size: int = 128
     seed: int = 42
-    num_workers: int = 2
+    num_workers: int = 6
     image_size: int = 128
     patch_size: int = 16
     n_classes: int = 102
@@ -22,7 +22,7 @@ class TrainConfig:
     dropout: float = 0.1
     learning_rate: float = 3e-4
     weight_decay: float = 1e-4
-    n_epochs: int = 20
+    n_epochs: int = 100
     model_path: str = "vit_flowers102.pt"
     history_path: str = "training_history.json"
     output_dir: str = "outputs"
