@@ -101,3 +101,16 @@ python scripts/predict.py
 
 This project is an educational PyTorch implementation, not a full production
 CTR system.
+
+## Model Summary and Key Papers
+
+DeepFM combines an FM component for first-order and second-order feature
+interactions with a deep neural network for higher-order nonlinear interactions.
+It matters historically because it reduced the need for hand-designed wide
+feature crosses while keeping FM-style sparse feature interaction modeling.
+
+Key paper:
+
+- DeepFM: A Factorization-Machine based Neural Network for CTR Prediction
+  Authors: Huifeng Guo, Ruiming Tang, Yunming Ye, Zhenguo Li, Xiuqiang He
+  Link: https://arxiv.org/abs/1703.04247

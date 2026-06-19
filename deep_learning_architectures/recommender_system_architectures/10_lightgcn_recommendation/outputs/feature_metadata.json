@@ -1,0 +1,19 @@
+{
+  "dataset_name": "MovieLens 10M",
+  "debug_mode": true,
+  "max_edges": 300000,
+  "max_interactions": 500000,
+  "max_users": 5000,
+  "num_items": 7012,
+  "num_test_edges": 25752,
+  "num_train_edges": 206020,
+  "num_users": 3664,
+  "num_valid_edges": 25752,
+  "positive_rating_threshold": 4.0,
+  "processed_data_root": "/home/van-gogh/project/python_code/machine_learning/datasets/ml-10M100K/processed_lightgcn",
+  "raw_data_root": "/home/van-gogh/project/python_code/machine_learning/datasets/ml-10M100K",
+  "task_type": "implicit_feedback_graph_collaborative_filtering",
+  "test_size": 25752,
+  "train_size": 206020,
+  "valid_size": 25752
+}
