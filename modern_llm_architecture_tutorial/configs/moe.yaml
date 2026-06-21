@@ -1,0 +1,37 @@
+data_dir: data
+checkpoint_dir: checkpoints
+dataset_name: tiny_shakespeare
+dataset_url: https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt
+val_fraction: 0.1
+
+vocab_size: 0
+max_seq_len: 256
+d_model: 256
+n_layers: 4
+n_heads: 8
+n_kv_heads: 2
+head_dim: 32
+dropout: 0.1
+use_rope: true
+use_gqa: true
+use_sliding_window: true
+sliding_window_size: 128
+use_moe: true
+num_experts: 4
+top_k: 2
+moe_aux_loss_weight: 0.01
+tie_embeddings: true
+
+batch_size: 16
+epochs: 3
+learning_rate: 0.0003
+min_learning_rate: 0.00003
+weight_decay: 0.1
+warmup_steps: 100
+grad_clip: 1.0
+num_workers: 0
+seed: 42
+use_amp: true
+resume: true
+checkpoint_name: moe.pt
+
